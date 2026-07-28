@@ -58,3 +58,13 @@ drwxr-xr-x 1 n 197121 0 Jul 28 17:43 ../
 
 n@PC-191222 MINGW64 ~/test_folder
 $ rm rename.txt
+
+
+### 🚨 트러블슈팅 1: 터미널 명령어 `ls -al` 인식 불가 오류
+
+* **문제 상황:** VS Code 터미널에서 숨김 파일을 확인하기 위해 `ls -al` 명령어를 입력했으나, `Get-ChildItem : 매개 변수 이름 'al'과(와) 일치하는 매개 변수를 찾을 수 없습니다.` 라는 에러가 발생함.
+* **원인 가설:** 현재 열려있는 터미널이 Linux 환경이 아닌 Windows PowerShell(`PS`)로 설정되어 있어, Linux 전용 옵션인 `-al` 문법을 해석하지 못한 것으로 추정함.
+* **확인 및 해결:** 
+  1. PowerShell에서는 `ls -Force`를 사용해야 함을 확인함.
+  2. 하지만 본 과제는 Linux CLI 환경 실습이 목적이므로, VS Code의 기본 터미널 프로필(Default Profile)을 `Git Bash`로 변경함.
+  3. 새 터미널(Git Bash)을 열고 `ls -al`을 재입력한 결과, 정상적으로 숨김 파일 목록이 출력됨을 확인함.
