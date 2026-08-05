@@ -11,14 +11,14 @@
 
 ## 3. 수행 체크리스트
 - [x] 터미널 기본 조작 및 폴더 구성
-- [ ] 파일/디렉토리 권한 변경 실습
+- [x] 파일/디렉토리 권한 변경 실습
 - [x] Docker 설치 및 점검 (`docker --version`, `docker info`)
-- [ ] Docker 기본 운영 명령 (images/ps/logs/stats)
-- [ ] hello-world / ubuntu 컨테이너 실행
-- [ ] Dockerfile 기반 커스텀 이미지 빌드
-- [ ] 포트 매핑 접속 확인 (2회)
-- [ ] 바인드 마운트 반영 확인
-- [ ] 볼륨 영속성 검증
+- [x] Docker 기본 운영 명령 (images/ps/logs/stats)
+- [x] hello-world / ubuntu 컨테이너 실행
+- [x] Dockerfile 기반 커스텀 이미지 빌드
+- [x] 포트 매핑 접속 확인 (2회)
+- [x] 바인드 마운트 반영 확인
+- [x] 볼륨 영속성 검증
 - [x] Git 설정 및 GitHub 연동
 
 ## 4. 검증 방법
@@ -43,5 +43,3 @@
 - 원인 가설: VSCode 편집창에서 `Cmd+S` 저장이 정상적으로 반영되지 않음
 - 확인: VSCode 탭에 저장 안 됨을 나타내는 점(●) 표시 확인
 - 해결: 편집창 클릭 후 재입력 및 재저장 → 정상 반영
-=======
-# codyssey-first-session
