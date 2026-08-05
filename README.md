@@ -22,7 +22,14 @@
 - [x] Git 설정 및 GitHub 연동
 
 ## 4. 검증 방법
-(각 항목 진행하면서 채워나갈 예정)
+- Git 설정: `git config --list` 실행 결과 확인 (아래 코드블록)
+
+\`\`\`
+user.name=(네 이름)
+user.email=(네 이메일, 필요시 마스킹)
+init.defaultbranch=main
+...
+\`\`\`
 
 ## 5. 트러블슈팅
 
@@ -43,3 +50,18 @@
 - 원인 가설: VSCode 편집창에서 `Cmd+S` 저장이 정상적으로 반영되지 않음
 - 확인: VSCode 탭에 저장 안 됨을 나타내는 점(●) 표시 확인
 - 해결: 편집창 클릭 후 재입력 및 재저장 → 정상 반영
+
+## 6. 증거 자료
+스크린샷 모음(구글드라이브): (https://docs.google.com/document/d/17iRntgpWm7rpi_XvH7fv2XckVY34P0wPGTAen4aknfo/edit?tab=t.0)
+
+## 7. 학습 노트 (핵심 개념 정리)
+
+- **GUI vs CLI**: GUI는 마우스로 클릭, CLI(Command Line Interface)는 명령어로 지시.
+  반복 작업(예: 폴더 100개 생성)은 CLI가 압도적으로 빠르고, 서버처럼 GUI가 아예 없는 환경도 많음.
+- **Shell**: 터미널에 입력한 명령어를 운영체제가 이해할 수 있게 번역해주는 프로그램. 이번 과제에서 쓰는 shell은 zsh.
+- **명령어 흐름**: 쉘 명령어 → OS에 직접 지시. 반면 코딩 언어는 프로그램/앱을 만들 때 사용 — 즉 "터미널 위에서 프로그래밍 언어가 돌아가는" 구조.
+- **명령어 어원**
+  - `cd` = Change Directory (디렉토리=폴더)
+  - `ls` = list
+  - `-` (플래그/옵션) = 명령어의 세부 동작 지정. 예: `ls -l` = list + long(자세히)
+  - `>` = 터미널 출력 대신 다른 곳으로 보내기 (redirection)
