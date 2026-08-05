@@ -3,48 +3,12 @@
 
 
 
-기초  터미널 명령어 실습 
-ytg16168982@c5r6s1 ~ % pwd
-/Users/ytg16168982
-ytg16168982@c5r6s1 ~ % mkdir mission-dir
-ytg16168982@c5r6s1 ~ % cd mission-dir
-ytg16168982@c5r6s1 mission-dir % touch test.txt
-ytg16168982@c5r6s1 mission-dir % ls -al      
-total 0
-drwxr-xr-x   3 ytg16168982  ytg16168982   96 Jul 30 18:28 .
-drwxr-x---+ 21 ytg16168982  ytg16168982  672 Jul 30 18:27 ..
--rw-r--r--   1 ytg16168982  ytg16168982    0 Jul 30 18:28 test.txt
-ytg16168982@c5r6s1 mission-dir % echo "Hellow World" > test.txt
-ytg16168982@c5r6s1 mission-dir % cat test.txt
-Hellow World
-ytg16168982@c5r6s1 mission-dir % mv test.txt hello.txt
-ytg16168982@c5r6s1 mission-dir % cp hello.txt copy.txt
-ytg16168982@c5r6s1 mission-dir % 
 
 
-
-
-permission 실습
-ytg16168982@c5r6s1 mission-dir % ls -al hello.txt   
--rw-r--r--  1 ytg16168982  ytg16168982  13 Jul 30 18:29 hello.txt
-ytg16168982@c5r6s1 mission-dir % cmchod 755 hello.txt
-zsh: command not found: cmchod
-ytg16168982@c5r6s1 mission-dir % chmod 755 hello.txt
-ytg16168982@c5r6s1 mission-dir % ls - al hello.txt
-ls: -: No such file or directory
-ls: al: No such file or directory
-hello.txt
-ytg16168982@c5r6s1 mission-dir % chmod 755 hello.txt
-ytg16168982@c5r6s1 mission-dir % ls -al hello.txt
--rwxr-xr-x  1 ytg16168982  ytg16168982  13 Jul 30 18:29 hello.txt
-
-
-
-
-docker 실습
-ytg16168982@c5r6s1 ~ % docker --version
-Docker version 28.5.2, build ecc6942
-ytg16168982@c5r6s1 ~ % docker info
+#트러블슈팅
+ytg16168982@c6r3s8 ~ % doker info
+zsh: command not found: doker
+ytg16168982@c6r3s8 ~ % docker info
 Client:
  Version:    28.5.2
  Context:    orbstack
@@ -81,7 +45,7 @@ Server:
   /etc/cdi
   /var/run/cdi
  Swarm: inactive
- Runtimes: io.containerd.runc.v2 runc
+ Runtimes: runc io.containerd.runc.v2
  Default Runtime: runc
  Init Binary: docker-init
  containerd version: 1c4457e00facac03ce1d75f7b6777a7a851e5c41
@@ -96,9 +60,9 @@ Server:
  OSType: linux
  Architecture: x86_64
  CPUs: 6
- Total Memory: 7.81GiB
+ Total Memory: 15.67GiB
  Name: orbstack
- ID: 048e2934-194c-4048-9c08-ddd19774df76
+ ID: 43d649f8-9dba-4140-a15b-f5e437bb459f
  Docker Root Dir: /var/lib/docker
  Debug Mode: false
  Experimental: false
@@ -141,74 +105,5 @@ Server:
    Base: fd07:b51a:cc66:d000::/56, Size: 64
 
 WARNING: DOCKER_INSECURE_NO_IPTABLES_RAW is set
-ytg16168982@c5r6s1 ~ % docker run hello-world
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-4f55086f7dd0: Pull complete 
-Digest: sha256:c3cbe1cc1aa588a64951ac6286e0df7b27fe2e6324b1001c619bb358770c0178
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (amd64)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
-
-
-
-
-
-index html 위치에 서버 만들기
-<h1>Hellow, My First Docker Web Server</h1> 
-
-ytg16168982@c5r6s1 my-web % echo "<h1>Hellow, My First Docker Web Server</h1>" > index.html 
-Docker 파일 만들기
-ytg16168982@c5r6s1 my-web % code.
-zsh: command not found: code.
-ytg16168982@c5r6s1 my-web % code .
-
-
-해당 Docker 파일에 프로그램 다운로드
-FROM nginx:latest
-COPY index.html /usr/share/nginx/html/index.html
-4단계: 이미지 만들기
-docker build -t my-nginx-image .
-
-5단계(내가 만든 이미지 실행하기)
-ytg16168982@c5r6s1 my-web % docker run -d -p 8080:80 --name my-web-container my-nginx-image
-0ba5c512916045977d02f010040b3ea0d33c0003d600dcf0ba162427938e32d0
-
-마무리(백그라운드 종료 및 삭제)
-ytg16168982@c5r6s1 my-web % docker run -d -p 8080:80 --name my-web-container my-nginx-image
-0ba5c512916045977d02f010040b3ea0d33c0003d600dcf0ba162427938e32d0
-ytg16168982@c5r6s1 my-web % docker ps
-CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                                     NAMES
-0ba5c5129160   my-nginx-image   "/docker-entrypoint.…"   10 minutes ago   Up 10 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   my-web-container
-ytg16168982@c5r6s1 my-web % docker stop my-web-container
-my-web-container
-ytg16168982@c5r6s1 my-web % docker rm my-web-container
-my-web-container
-ytg16168982@c5r6s1 my-web % docker ps -a
-CONTAINER ID   IMAGE         COMMAND    CREATED       STATUS                   PORTS     NAMES
-eee977a99ed9   ubuntu        "bash"     2 hours ago   Exited (0) 2 hours ago             angry_darwin
-0fcaf1025a30   hello-world   "/hello"   2 hours ago   Exited (0) 2 hours ago             quirky_heisenberg
-ytg16168982@c5r6s1 my-web % docker images
-REPOSITORY       TAG       IMAGE ID       CREATED             SIZE
-my-nginx-image   latest    b4d985ec451e   About an hour ago   161MB
-ubuntu           latest    de7345b16e94   2 weeks ago         100MB
-hello-world      latest    e2ac70e7319a   4 months ago        10.1kB
+ytg16168982@c6r3s8 ~ % docker --version
+Docker version 28.5.2, build ecc6942
