@@ -22,11 +22,11 @@
 - [x] Git 설정 및 GitHub 연동
 
 ## 4. 검증 방법
-- Git 설정: `git config --list` 실행 결과 확인 (아래 코드블록)
+- Git 설정: `git config --list` 실행 결과
 
 \`\`\`
-user.name=(네 이름)
-user.email=(네 이메일, 필요시 마스킹)
+user.name= ytg1616
+user.email= ytg1616@gmail.com
 init.defaultbranch=main
 ...
 \`\`\`
